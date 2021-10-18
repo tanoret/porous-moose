@@ -25,6 +25,8 @@
   [diffusion]
     type = DarcyPressure
     variable = pressure
+    permeability = 0.8451e-09 # (m^2)
+    viscosity = 7.98e-04 # (Pa.s)
   []
 []
 
