@@ -16,8 +16,13 @@
   [diffusion]
     type = DarcyPressure
     variable = u
-    permeability = 0.8451e-09 # (m^2)
-    viscosity = 0.0
+  []
+[]
+
+[Materials]
+  [filer]
+    type = PackedColumn
+    viscosity = 0.0 #Pa.s
   []
 []
 

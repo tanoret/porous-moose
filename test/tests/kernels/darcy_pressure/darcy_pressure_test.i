@@ -14,7 +14,14 @@
   [diffusion]
     type = DarcyPressure
     variable = pressure
-    permeability = 0.8451e-09 # (m^2)
+  []
+[]
+
+[Materials]
+  [filer]
+    type = PackedColumn
+    diameter = 1.0 #mm
+    viscosity = 7.98e-4 #Pa.s
   []
 []
 
