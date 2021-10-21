@@ -1,23 +1,12 @@
 [Mesh]
   type = GeneratedMesh
   dim = 2
-  nx = 100
+  nx = 10
   ny = 10
-  xmin = 0.0
-  xmax = 0.304
-  ymin = 0.0
-  ymax = 0.0257
-[]
-
-[Problem]
-  type = FEProblem
-  coord_type = RZ
-  rz_coord_axis = X
 []
 
 [Variables]
   [pressure]
-    # Adds linear Lagrange variable by default
   []
 []
 
@@ -26,7 +15,6 @@
     type = DarcyPressure
     variable = pressure
     permeability = 0.8451e-09 # (m^2)
-    viscosity = 7.98e-04 # (Pa.s)
   []
 []
 
@@ -35,26 +23,23 @@
     type = ADDirichletBC
     variable = pressure
     boundary = left
-    value = 4000 #Pa
+    value = 0
   []
   [outlet]
     type = ADDirichletBC
     variable = pressure
     boundary = right
-    value = 0
+    value = 4000
   []
 []
 
 [Executioner]
   type = Steady
-  solve_type = NEWTON
-
-  # Set PETSC parameters
+  solve_type = JFNK
   petsc_options_iname = '-pc_type -pc_hypre_type'
-  petsc_options_value = ' hypre    boomeramg'
+  petsc_options_value = 'hypre boomeramg'
 []
 
 [Outputs]
   exodus = true
-  perf_graph = true
 []
